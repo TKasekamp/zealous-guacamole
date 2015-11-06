@@ -19,26 +19,22 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h1 class="page-header">Dashboard</h1>
-				<h2 class="sub-header">Section title</h2>
+				<h1 class="page-header">Villages</h1>
+				<h2 class="sub-header">Villages table</h2>
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>Header</th>
-								<th>Header</th>
-								<th>Header</th>
-								<th>Header</th>
+								<th>Village id</th>
+								<th>Name</th>
+								<th>Population</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1,001</td>
-								<td>Lorem</td>
-								<td>ipsum</td>
-								<td>dolor</td>
-								<td>sit</td>
+							<tr th:each="village : ${villages}">
+								<td th:text="${village.getId()}">1,001</td>
+								<td th:text="${village.getName()}">Lorem</td>
+								<td th:text="${village.getPopulation()}">ipsum</td>
 							</tr>
 						</tbody>
 					</table>
