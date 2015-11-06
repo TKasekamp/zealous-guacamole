@@ -20,6 +20,10 @@ public class Distance implements Serializable {
 	@Column
 	private int distTo4;
 
+	protected Distance() {
+
+	}
+
 	public Distance(Village village, int distTo1, int distTo2, int distTo3,
 			int distTo4) {
 		super();

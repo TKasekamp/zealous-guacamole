@@ -28,6 +28,10 @@ public class Village implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY)
 	private Set<Resource> production;
 
+	protected Village() {
+
+	}
+
 	public Village(String name, int population) {
 		super();
 		this.name = name;

@@ -24,6 +24,10 @@ public class Caravan implements Serializable {
 	@Column
 	private int daysTravelled;
 
+	protected Caravan() {
+
+	}
+
 	public Caravan(Village from, Village to) {
 		super();
 		this.from = from;

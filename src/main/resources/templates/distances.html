@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Zealous Guacamole</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
+	th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+</head>
+<body>
+	<!-- Header -->
+	<div th:replace="header :: header" ></div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h1 class="page-header">Distances</h1>
+				<h2 class="sub-header">Distance table</h2>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Village id</th>
+								<th>Distance to 1</th>
+								<th>Distance to 2</th>
+								<th>Distance to 3</th>
+								<th>Distance to 4</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="distance : ${distances}">
+								<td th:text="${distance.getId()}">1,001</td>
+								<td th:text="${distance.getDistTo1()}">Lorem</td>
+								<td th:text="${distance.getDistTo2()}">ipsum</td>
+								<td th:text="${distance.getDistTo3()}">dolor</td>
+								<td th:text="${distance.getDistTo4()}">sit</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

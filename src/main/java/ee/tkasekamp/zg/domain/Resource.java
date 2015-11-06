@@ -20,6 +20,10 @@ public class Resource implements Serializable {
 	@Column
 	private int size;
 
+	protected Resource() {
+
+	}
+
 	public Resource(Type type, int size) {
 		super();
 		this.type = type;
