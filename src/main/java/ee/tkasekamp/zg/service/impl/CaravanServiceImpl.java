@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ee.tkasekamp.zg.domain.Caravan;
-import ee.tkasekamp.zg.domain.Village;
 import ee.tkasekamp.zg.repository.CaravanRepository;
 import ee.tkasekamp.zg.service.CaravanService;
 
@@ -21,13 +20,13 @@ public class CaravanServiceImpl implements CaravanService {
 	}
 
 	@Override
-	public List<Caravan> getFromCaravans(Village village) {
-		return caravanRepo.findFrom(village.getId());
+	public List<Caravan> getFromCaravans(int villageId) {
+		return caravanRepo.findFrom(villageId);
 	}
 
 	@Override
-	public List<Caravan> getToCaravans(Village village) {
-		return caravanRepo.findTo(village.getId());
+	public List<Caravan> getToCaravans(int villageId) {
+		return caravanRepo.findTo(villageId);
 	}
 
 }

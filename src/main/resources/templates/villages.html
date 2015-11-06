@@ -19,21 +19,23 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h1 class="page-header" th:text="${village.getName()}">Village name</h1>
-				<h2 class="sub-header" th:text="${'Population '+village.getPopulation()}">Village population</h2>
-				<h2 class="sub-header">Storage</h2>
+				<h1 class="page-header">Villages</h1>
+				<h2 class="sub-header">Villages table</h2>
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>Type</th>
-								<th>Size</th>
+								<th>Village id</th>
+								<th>Name</th>
+								<th>Population</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="stor : ${village.getStorage()}">
-								<td th:text="${stor.getType().getName()}">1,001</td>
-								<td th:text="${stor.getSize()}">Lorem</td>
+							<tr th:each="village : ${villages}">
+								<td ><a th:text="${village.getId()}"
+									th:href="@{'/village/'+${village.getId()}}">000</a></td>
+								<td th:text="${village.getName()}">Lorem</td>
+								<td th:text="${village.getPopulation()}">ipsum</td>
 							</tr>
 						</tbody>
 					</table>
