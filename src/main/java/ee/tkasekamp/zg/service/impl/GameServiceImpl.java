@@ -31,7 +31,7 @@ public class GameServiceImpl implements GameService {
 
 		Village b = new Village("Bravo", 100);
 		Resource b1 = new Resource(Type.FOOD, 3);
-		a.getStorage().add(b1);
+		b.getStorage().add(b1);
 		resourceRepo.save(b1);
 		villageRepo.save(b);
 
