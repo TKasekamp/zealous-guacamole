@@ -5,9 +5,11 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ee.tkasekamp.zg.domain.Caravan;
 import ee.tkasekamp.zg.domain.Resource;
 import ee.tkasekamp.zg.domain.Type;
 import ee.tkasekamp.zg.domain.Village;
+import ee.tkasekamp.zg.repository.CaravanRepository;
 import ee.tkasekamp.zg.repository.ResourceRepository;
 import ee.tkasekamp.zg.repository.VillageRepository;
 import ee.tkasekamp.zg.service.GameService;
@@ -18,6 +20,8 @@ public class GameServiceImpl implements GameService {
 	VillageRepository villageRepo;
 	@Autowired
 	ResourceRepository resourceRepo;
+	@Autowired
+	CaravanRepository caravanRepo;
 
 	@Override
 	@PostConstruct
@@ -37,6 +41,15 @@ public class GameServiceImpl implements GameService {
 
 		villageRepo.save(new Village("Charlie", 150));
 		villageRepo.save(new Village("Delta", 200));
+		
+		// Caravans
+		Resource r = new Resource(Type.FOOD, 2);
+		Caravan car = new Caravan(a, b);
+		car.setResource(r);
+		resourceRepo.save(r);
+		caravanRepo.save(car);
+		
+		
 
 	}
 

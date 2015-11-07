@@ -19,8 +19,11 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h1 class="page-header" th:text="${village.getName()}">Village name</h1>
-				<h2 class="sub-header" th:text="${'Population '+village.getPopulation()}">Village population</h2>
+				<h1 class="page-header" th:text="${village.getName()}">Village
+					name</h1>
+				<h2 class="sub-header"
+					th:text="${'Population '+village.getPopulation()}">Village
+					population</h2>
 				<h2 class="sub-header">Storage</h2>
 				<div class="table-responsive">
 					<table class="table table-striped">
@@ -34,6 +37,71 @@
 							<tr th:each="stor : ${village.getStorage()}">
 								<td th:text="${stor.getType().getName()}">1,001</td>
 								<td th:text="${stor.getSize()}">Lorem</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h2 class="sub-header">Production</h2>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Type</th>
+								<th>Size</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="prod : ${village.getProduction()}">
+								<td th:text="${prod.getType().getName()}">1,001</td>
+								<td th:text="${prod.getSize()}">Lorem</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h2 class="sub-header"
+					th:text="${'Caravans to '+ village.getName()}">Caravans to</h2>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>From</th>
+								<th>Days travelled of total</th>
+								<th>Type</th>
+								<th>Size</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="caravan : ${toCaravans}">
+								<td th:text="${caravan.getFrom().getName()}">1,001</td>
+								<td th:text="${caravan.getDaysTravelled()}">Lorem
+									${caravan.getDaysTravelled() +' of '+
+									"${distanceBetween(caravan.getFrom(), caravan.getTo())}"</td>
+								<td th:text="${caravan.getResource().getName()}">1,001</td>
+								<td th:text="${caravan.getResource().getSize()}">1,001</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h2 class="sub-header"
+					th:text="${'Caravans from '+ village.getName()}">Caravans from</h2>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>To</th>
+								<th>Days travelled of total</th>
+								<th>Type</th>
+								<th>Size</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="caravan : ${fromCaravans}">
+								<td th:text="${caravan.getTo().getName()}">1,001</td>
+								<td th:text="${caravan.getDaysTravelled()}">something</td>
+								<td th:text="${caravan.getResource().getName()}">1,001</td>
+								<td th:text="${caravan.getResource().getSize()}">1,001</td>
 							</tr>
 						</tbody>
 					</table>

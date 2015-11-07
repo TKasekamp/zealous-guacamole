@@ -41,5 +41,9 @@ public class Resource implements Serializable {
 	public void setSize(int size) {
 		this.size = size;
 	}
+	
+	public String getName() {
+		return this.type.getName();
+	}
 
 }

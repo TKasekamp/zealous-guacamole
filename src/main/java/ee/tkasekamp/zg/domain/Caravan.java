@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Caravan implements Serializable {
@@ -23,6 +24,8 @@ public class Caravan implements Serializable {
 	private Village to;
 	@Column
 	private int daysTravelled;
+	@OneToOne(optional = false, fetch = FetchType.LAZY)
+	private Resource resource;
 
 	protected Caravan() {
 
@@ -33,6 +36,14 @@ public class Caravan implements Serializable {
 		this.from = from;
 		this.to = to;
 		daysTravelled = 0;
+	}
+
+	public void setResource(Resource resource) {
+		this.resource = resource;
+	}
+
+	public Resource getResource() {
+		return resource;
 	}
 
 	public int getDaysTravelled() {

@@ -24,7 +24,7 @@ public class VillageController {
 	public String village(Model model, @PathVariable int id) {
 		model.addAttribute("village", villageServ.getVillage(id));
 		model.addAttribute("fromCaravans", caravanServ.getFromCaravans(id));
-		model.addAttribute("toCaravans", caravanServ.getFromCaravans(id));
+		model.addAttribute("toCaravans", caravanServ.getToCaravans(id));
 		return "village";
 	}
 }
